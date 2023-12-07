@@ -1,0 +1,65 @@
+body {
+    font-family: 'Verdana', sans-serif; /* Changed the font to Verdana */
+    background: linear-gradient(to bottom right, #800080, #0000FF); /* Purple to Blue gradient */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Ensure full height */
+    margin: 0; /* Remove default body margin */
+}
+
+h1 {
+    text-align: center;
+}
+
+.text-container {
+    margin-bottom: 30px; /* Increased space between text and to-do list */
+}
+
+#todo-list {
+    margin-top: 25px;
+    margin-bottom: 25px; /* Updated spacing between to-do list and text box */
+    width: 100%;
+    max-width: 400px;
+}
+
+.task-container {
+    margin-top: 20px; /* Add space between text box and to-do list items */
+}
+
+.task {
+    background: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+    padding: 10px;
+    margin-bottom: 15px; /* Added space between tasks */
+    display: flex;
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Make the task container full width of its parent */
+    box-sizing: border-box; /* Include padding and border in width */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+.task-text {
+    flex-grow: 1;
+    text-align: center; /* Center the text */
+    color: white; /* Text color in the task item */
+}
+
+.remove-task {
+    color: red;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px; /* Add margin to the right for spacing */
+}
+
+.empty-message {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px; /* Add margin for spacing */
+    color: white;
+}
+
+
