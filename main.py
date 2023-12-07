@@ -1,7 +1,11 @@
+import os
 import json
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
+# Get the current directory
+current_directory = os.path.dirname(os.path.realpath(__file__))
 
 class DoYourDailys:
     def __init__(self):
@@ -10,13 +14,13 @@ class DoYourDailys:
 
     def load_todo_list(self):
         try:
-            with open('todo_list.json', 'r') as file:
+            with open(os.path.join(current_directory, 'todo_list.json'), 'r') as file:
                 return json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             return []
 
     def save_todo_list(self):
-        with open('todo_list.json', 'w') as file:
+        with open(os.path.join(current_directory, 'todo_list.json'), 'w') as file:
             json.dump(self.todo_list, file)
 
     def display_todo_list(self):
@@ -64,4 +68,4 @@ def remove_task(task):
     return index()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
