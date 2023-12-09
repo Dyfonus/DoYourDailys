@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, request
+from flaskwebgui import FlaskUI  # Import FlaskWebGUI library
 
 app = Flask(__name__)
 
@@ -45,6 +46,9 @@ class DoYourDailys:
 
 do_your_dailys = DoYourDailys()
 
+# Use FlaskWebGUI to run the app as a desktop application
+ui = FlaskUI(app, width=800, height=600)
+
 @app.route("/")
 def index():
     return render_template("index.html", todo_list=do_your_dailys.display_todo_list())
@@ -68,4 +72,5 @@ def remove_task(task):
     return index()
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    # Run the app using FlaskWebGUI
+    ui.run()
